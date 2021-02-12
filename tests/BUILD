@@ -1,6 +1,17 @@
 load("@rules_cc//cc:defs.bzl", "cc_test")
 
 cc_test(
+    name = "all",
+    srcs = glob(["**/*test.cc"]),
+    deps = [
+        "//src/lib:CPPLib",
+        "//src/lib/sort:SortLib",
+        "//src/lib/search:SearchLib",
+        "@com_google_googletest//:gtest_main",
+    ],
+)
+
+cc_test(
     name = "cpplib_test",
     srcs = ["cpplib_test.cc"],
     deps = [
